@@ -26,6 +26,7 @@ const config = {
     path: resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
     clean: true,
+    globalObject: 'this'
   },
 };
 
