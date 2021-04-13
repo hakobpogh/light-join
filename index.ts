@@ -1,5 +1,15 @@
 const lightJoin = (...args: string[]): string => {
-  const paths = args.map((path, ind) => ind ? clearStart(clearEnd(path)) : clearEnd(path));
+  const paths = args.map((path, ind) => {
+    if (!ind) {
+      path = clearStart(path);
+    }
+
+    if (ind === args.length - 1) {
+      path = clearEnd(path);
+    }
+
+    return path;
+  });
 
   return paths.join('/');
 };
