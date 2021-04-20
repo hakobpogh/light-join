@@ -1,15 +1,14 @@
 {
   "name": "light-join",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Join urls or paths into single path",
   "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "index.ts",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "webpack --config webpack.config.ts --env=prod",
-    "postbuild": "yarn gen-declarations",
-    "prebuild:dev": "tsc --noEmit",
-    "build:dev": "webpack --config webpack.config.ts",
-    "gen-declarations": "tsc --emitDeclarationOnly"
+    "build": "microbundle-crl --no-compress --format modern,esm,cjs",
+    "build:dev": "microbundle-crl --format modern,esm,cjs"
   },
   "repository": {
     "type": "git",
@@ -31,14 +30,8 @@
   },
   "homepage": "https://github.com/hakobpogh/light-join",
   "devDependencies": {
-    "@babel/core": "^7.13.15",
-    "@babel/preset-env": "^7.13.15",
-    "@babel/preset-typescript": "^7.13.0",
-    "@types/webpack": "^5.28.0",
+    "microbundle-crl": "^0.13.11",
     "ts-node": "^9.1.1",
-    "typescript": "^4.2.4",
-    "webpack": "^5.31.2",
-    "webpack-cli": "^4.6.0",
-    "babel-loader": "^8.2.2"
+    "typescript": "^4.2.4"
   }
 }
