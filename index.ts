@@ -1,11 +1,11 @@
-const lightJoin = (...args: string[]): string => {
+const lightJoin = (...args: unknown[]): string => {
   const paths = args.map((path, ind) => {
     if (!ind) {
-      path = clearStart(path);
+      path = clearStart(String(path));
     }
 
-    if (ind === args.length - 1) {
-      path = clearEnd(path);
+    if (ind !== args.length - 1) {
+      path = clearEnd(String(path));
     }
 
     return path;
