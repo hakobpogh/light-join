@@ -1,20 +1,10 @@
-const lightJoin = (...args: unknown[]): string => {
-  const paths = args.map((path, ind) => {
-    if (!ind) {
-      path = clearStart(String(path));
-    }
+const lightJoin = (...args: unknown[]): string => (
+  args.join('/').replace(
+    /^([^/]+:\/\/[^/])?(.*)$/,
+    (_, prefix, rest) => (prefix || '') + cleanSlashes(rest)
+  )
+);
 
-    if (ind !== args.length - 1) {
-      path = clearEnd(String(path));
-    }
-
-    return path;
-  });
-
-  return paths.join('/');
-};
-
-const clearStart = (path: string) => path.replace(/^\/+/, '');
-const clearEnd = (path: string) => path.replace(/\/+$/, '');
+const cleanSlashes = (str: string) => str.replace(/\/\/+/g, '/');
 
 export default lightJoin;
