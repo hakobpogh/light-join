@@ -1,4 +1,4 @@
-const lightJoin = (...args: unknown[]): string => (
+export const lightJoin = (...args: unknown[]): string => (
   args.join('/').replace(
     /^([^/]+:\/\/[^/])?(.*)$/,
     (_, prefix, rest) => (prefix || '') + cleanSlashes(rest)
