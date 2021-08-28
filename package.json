@@ -1,14 +1,15 @@
 {
   "name": "light-join",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "Join urls or paths into single path",
   "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
   "module": "dist/index.modern.js",
   "source": "index.ts",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,esm,cjs",
-    "build:dev": "microbundle-crl --format modern,esm,cjs",
+    "build": "microbundle-crl --no-compress",
+    "build:dev": "microbundle-crl",
     "test": "mocha --require ts-node/register test.ts"
   },
   "repository": {
